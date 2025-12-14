@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Health Analyzer - Interactive Medical Guide</title>
+    <meta name="description"
+        content="Explore how different body parts react to various diseases with our interactive medical guide">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="pulse-circle pulse-1"></div>
+        <div class="pulse-circle pulse-2"></div>
+        <div class="pulse-circle pulse-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 5L25 15H35L27.5 22.5L30 32.5L20 25L10 32.5L12.5 22.5L5 15H15L20 5Z"
+                        fill="url(#logo-gradient)" />
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="5" y1="5" x2="35" y2="32.5">
+                            <stop offset="0%" stop-color="#667eea" />
+                            <stop offset="100%" stop-color="#764ba2" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>Body Health Analyzer</h1>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-view="explorer">Explorer</button>
+                <button class="nav-btn" data-view="about">About</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Explorer View -->
+            <section id="explorer-view" class="view active">
+                <div class="intro-section">
+                    <h2 class="section-title">Explore Your Body's Response to Diseases</h2>
+                    <p class="section-subtitle">Click on any body part to learn how it reacts to various health
+                        conditions</p>
+                </div>
+
+                <div class="content-grid">
+                    <!-- Interactive Body Diagram -->
+                    <div class="body-diagram-container">
+                        <div class="body-diagram">
+                            <svg viewBox="0 0 300 600" class="body-svg">
+                                <!-- Head -->
+                                <ellipse id="brain" cx="150" cy="60" rx="45" ry="50" class="body-part"
+                                    data-part="brain" />
+                                <text x="150" y="65" text-anchor="middle" class="part-label">Brain</text>
+
+                                <!-- Lungs -->
+                                <ellipse id="lungs-left" cx="120" cy="180" rx="30" ry="40" class="body-part"
+                                    data-part="lungs" />
+                                <ellipse id="lungs-right" cx="180" cy="180" rx="30" ry="40" class="body-part"
+                                    data-part="lungs" />
+                                <text x="150" y="185" text-anchor="middle" class="part-label">Lungs</text>
+
+                                <!-- Heart -->
+                                <path id="heart"
+                                    d="M 150 220 L 160 210 Q 170 200 175 210 Q 180 220 175 230 L 150 255 L 125 230 Q 120 220 125 210 Q 130 200 140 210 Z"
+                                    class="body-part" data-part="heart" />
+                                <text x="150" y="240" text-anchor="middle" class="part-label">Heart</text>
+
+                                <!-- Liver -->
+                                <rect id="liver" x="155" y="260" width="60" height="50" rx="10" class="body-part"
+                                    data-part="liver" />
+                                <text x="185" y="290" text-anchor="middle" class="part-label">Liver</text>
+
+                                <!-- Stomach -->
+                                <ellipse id="stomach" cx="120" cy="285" rx="35" ry="45" class="body-part"
+                                    data-part="stomach" />
+                                <text x="120" y="290" text-anchor="middle" class="part-label">Stomach</text>
+
+                                <!-- Kidneys -->
+                                <ellipse id="kidney-left" cx="110" cy="350" rx="20" ry="35" class="body-part"
+                                    data-part="kidneys" />
+                                <ellipse id="kidney-right" cx="190" cy="350" rx="20" ry="35" class="body-part"
+                                    data-part="kidneys" />
+                                <text x="150" y="355" text-anchor="middle" class="part-label">Kidneys</text>
+
+                                <!-- Intestines -->
+                                <path id="intestines"
+                                    d="M 120 400 Q 100 420 120 440 Q 140 460 160 440 Q 180 420 200 440 Q 180 460 160 480 Q 140 500 120 480"
+                                    class="body-part" data-part="intestines" fill="none" stroke-width="15" />
+                                <text x="150" y="450" text-anchor="middle" class="part-label">Intestines</text>
+
+                                <!-- Bones -->
+                                <rect id="bones" x="135" y="480" width="30" height="80" rx="15" class="body-part"
+                                    data-part="bones" />
+                                <text x="150" y="525" text-anchor="middle" class="part-label">Bones</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Information Panel -->
+                    <div class="info-panel">
+                        <div class="info-card" id="info-card">
+                            <div class="info-placeholder">
+                                <div class="placeholder-icon">
+                                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                        <circle cx="40" cy="40" r="35" stroke="url(#placeholder-gradient)"
+                                            stroke-width="3" />
+                                        <path d="M40 25V40L50 50" stroke="url(#placeholder-gradient)" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        <defs>
+                                            <linearGradient id="placeholder-gradient" x1="5" y1="5" x2="75" y2="75">
+                                                <stop offset="0%" stop-color="#667eea" />
+                                                <stop offset="100%" stop-color="#764ba2" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <h3>Select a Body Part</h3>
+                                <p>Click on any organ or body part to see how it reacts to different diseases</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About View -->
+            <section id="about-view" class="view">
+                <div class="about-content">
+                    <h2 class="section-title">About Body Health Analyzer</h2>
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <div class="about-icon">🔬</div>
+                            <h3>Educational Purpose</h3>
+                            <p>Learn how different body parts respond to various diseases and health conditions in an
+                                interactive way.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">💡</div>
+                            <h3>Interactive Learning</h3>
+                            <p>Click on body parts to discover detailed information about symptoms, reactions, and
+                                health impacts.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">⚕️</div>
+                            <h3>Medical Awareness</h3>
+                            <p>Increase your understanding of how diseases affect your body and recognize warning signs
+                                early.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">🎯</div>
+                            <h3>User-Friendly</h3>
+                            <p>Simple, intuitive interface designed for everyone to understand complex medical
+                                information easily.</p>
+                        </div>
+                    </div>
+                    <div class="disclaimer">
+                        <h4>⚠️ Medical Disclaimer</h4>
+                        <p>This application is for educational purposes only. It is not a substitute for professional
+                            medical advice, diagnosis, or treatment. Always seek the advice of your physician or other
+                            qualified health provider with any questions you may have regarding a medical condition.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Body Health Analyzer. Educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

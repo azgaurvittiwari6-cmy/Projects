@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern shopping app with stunning design and smooth user experience">
+    <title>ShopHub - Your Premium Shopping Destination</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">🛍️</div>
+                <h1 class="login-title">Welcome to ShopHub</h1>
+                <p class="login-subtitle">Sign in to continue your shopping journey</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" class="form-input" placeholder="Enter your username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Sign In
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Shopping App -->
+    <div id="mainApp" class="hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <a href="#" class="app-logo">
+                    <div class="logo-icon">🛍️</div>
+                    <span>ShopHub</span>
+                </a>
+
+                <div class="header-actions">
+                    <a href="#" id="ordersLink" class="orders-link">
+                        <span class="orders-icon">📦</span>
+                        <span>My Orders</span>
+                    </a>
+                    <button id="logoutBtn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="mainContent">
+            <!-- Products Page -->
+            <div id="productsPage" class="container">
+                <h2
+                    style="font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                    Featured Products
+                </h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Orders Page -->
+            <div id="ordersPage" class="container orders-container hidden">
+                <div class="orders-header">
+                    <h2 class="orders-title">My Orders</h2>
+                    <div class="orders-logo">📦</div>
+                </div>
+
+                <div id="ordersContent">
+                    <!-- Orders will be dynamically inserted here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

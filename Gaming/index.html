@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GameHub - Play addictive mini games and test your skills">
+    <title>GameHub - Modern Gaming Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="logo">🎮 GameHub</h1>
+            <p class="tagline">Challenge yourself with addictive mini games</p>
+        </header>
+
+        <!-- Main Menu -->
+        <div id="main-menu">
+            <div class="game-grid">
+                <!-- Memory Game Card -->
+                <div class="game-card" onclick="startGame('memory')">
+                    <span class="game-icon">🧠</span>
+                    <h2>Color Memory</h2>
+                    <p>Match colorful cards and test your memory. Can you find all pairs?</p>
+                    <button class="play-btn">Play Now</button>
+                </div>
+
+                <!-- Reaction Game Card -->
+                <div class="game-card" onclick="startGame('reaction')">
+                    <span class="game-icon">⚡</span>
+                    <h2>Reaction Speed</h2>
+                    <p>Test your reflexes! Click as fast as you can when the color changes.</p>
+                    <button class="play-btn">Play Now</button>
+                </div>
+
+                <!-- Number Puzzle Card -->
+                <div class="game-card" onclick="startGame('puzzle')">
+                    <span class="game-icon">🎯</span>
+                    <h2>Number Puzzle</h2>
+                    <p>Arrange numbers from 1 to 15 in order. A classic sliding puzzle!</p>
+                    <button class="play-btn">Play Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Game -->
+        <div id="memory-game" class="game-container">
+            <div class="game-header">
+                <h2>🧠 Color Memory</h2>
+                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Moves</div>
+                    <div class="stat-value" id="memory-moves">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Matches</div>
+                    <div class="stat-value" id="memory-matches">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Time</div>
+                    <div class="stat-value" id="memory-time">0s</div>
+                </div>
+            </div>
+
+            <div id="memory-success" class="success-message hidden">
+                🎉 Congratulations! You won in <span id="final-moves">0</span> moves and <span id="final-time">0</span>
+                seconds!
+            </div>
+
+            <div class="memory-grid" id="memory-grid"></div>
+
+            <div class="game-controls">
+                <button class="btn btn-primary" onclick="initMemoryGame()">New Game</button>
+            </div>
+        </div>
+
+        <!-- Reaction Game -->
+        <div id="reaction-game" class="game-container">
+            <div class="game-header">
+                <h2>⚡ Reaction Speed</h2>
+                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Best Time</div>
+                    <div class="stat-value" id="reaction-best">-</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Average</div>
+                    <div class="stat-value" id="reaction-avg">-</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Attempts</div>
+                    <div class="stat-value" id="reaction-attempts">0</div>
+                </div>
+            </div>
+
+            <div class="reaction-zone" id="reaction-zone" onclick="handleReactionClick()">
+                <div class="reaction-message" id="reaction-message">Click to Start</div>
+                <div class="reaction-result" id="reaction-result"></div>
+            </div>
+
+            <div class="game-controls">
+                <button class="btn btn-secondary" onclick="resetReactionGame()">Reset Stats</button>
+            </div>
+        </div>
+
+        <!-- Number Puzzle Game -->
+        <div id="puzzle-game" class="game-container">
+            <div class="game-header">
+                <h2>🎯 Number Puzzle</h2>
+                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Moves</div>
+                    <div class="stat-value" id="puzzle-moves">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Time</div>
+                    <div class="stat-value" id="puzzle-time">0s</div>
+                </div>
+            </div>
+
+            <div id="puzzle-success" class="success-message hidden">
+                🎉 Puzzle solved in <span id="puzzle-final-moves">0</span> moves and <span
+                    id="puzzle-final-time">0</span> seconds!
+            </div>
+
+            <div class="puzzle-grid" id="puzzle-grid"></div>
+
+            <div class="game-controls">
+                <button class="btn btn-primary" onclick="initPuzzleGame()">New Game</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with ❤️ for gamers everywhere</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

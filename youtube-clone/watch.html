@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Watch video on YouTube Clone">
+    <title>Video - YouTube Clone</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📺</text></svg>">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">📺</span>
+                <span class="logo-text">YouTube</span>
+            </a>
+        </div>
+
+        <div class="header-center">
+            <div class="search-container">
+                <form class="search-form" id="search-form">
+                    <input type="text" class="search-input" id="search-input" placeholder="Search" autocomplete="off">
+                    <button type="submit" class="search-button" aria-label="Search">🔍</button>
+                </form>
+
+                <!-- Search Suggestions -->
+                <div class="search-suggestions" id="search-suggestions"></div>
+            </div>
+
+            <button class="voice-search" aria-label="Voice search">🎤</button>
+        </div>
+
+        <div class="header-right">
+            <button class="header-icon" aria-label="Create">➕</button>
+            <button class="header-icon" aria-label="Notifications">🔔</button>
+            <button class="header-icon" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-toggle-icon">🌙</span>
+            </button>
+            <div class="user-avatar" aria-label="User menu">U</div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-item active">
+                <span class="sidebar-icon">🏠</span>
+                <span class="sidebar-text">Home</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">🎬</span>
+                <span class="sidebar-text">Shorts</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">📺</span>
+                <span class="sidebar-text">Subscriptions</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-item">
+                <span class="sidebar-icon">📚</span>
+                <span class="sidebar-text">Library</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">⏰</span>
+                <span class="sidebar-text">History</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">🎥</span>
+                <span class="sidebar-text">Your videos</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">⏱️</span>
+                <span class="sidebar-text">Watch Later</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">👍</span>
+                <span class="sidebar-text">Liked videos</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+        <!-- Error Message Container -->
+        <div id="error-message"></div>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Watch Container -->
+        <div class="watch-container" id="watch-container" style="display: none;">
+            <!-- Primary Column -->
+            <div class="video-player-section">
+                <!-- Video Player -->
+                <div class="video-player" id="video-player"></div>
+
+                <!-- Video Info -->
+                <div class="video-primary-info">
+                    <h1 class="video-watch-title" id="video-title">Loading...</h1>
+
+                    <div class="video-stats">
+                        <div class="video-stats-left">
+                            <span id="video-views">0 views</span>
+                            <span>•</span>
+                            <span id="video-date">Loading...</span>
+                        </div>
+
+                        <div class="video-stats-right">
+                            <button class="action-button">
+                                <span>👍</span>
+                                <span id="video-likes">0</span>
+                            </button>
+                            <button class="action-button">
+                                <span>👎</span>
+                            </button>
+                            <button class="action-button">
+                                <span>↗️</span>
+                                <span>Share</span>
+                            </button>
+                            <button class="action-button">
+                                <span>💾</span>
+                                <span>Save</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Channel Info -->
+                <div class="channel-info">
+                    <div class="channel-details">
+                        <div class="channel-avatar" id="channel-avatar">C</div>
+                        <div class="channel-text">
+                            <div class="channel-name" id="channel-name">Channel Name</div>
+                            <div class="channel-subscribers">1M subscribers</div>
+                        </div>
+                    </div>
+                    <button class="subscribe-button">Subscribe</button>
+                </div>
+
+                <!-- Video Description -->
+                <div class="video-description" id="video-description">
+                    Loading video description...
+                </div>
+            </div>
+
+            <!-- Related Videos Sidebar -->
+            <div class="related-videos-section">
+                <!DOCTYPE html>
+                <html lang="en" data-theme="light">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <meta name="description" content="Watch video on YouTube Clone">
+                    <title>Video - YouTube Clone</title>
+
+                    <!-- Google Fonts -->
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+                        rel="stylesheet">
+
+                    <!-- Styles -->
+                    <link rel="stylesheet" href="styles.css">
+
+                    <!-- Favicon -->
+                    <link rel="icon"
+                        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📺</text></svg>">
+                </head>
+
+                <body>
+                    <!-- Header -->
+                    <header class="header">
+                        <div class="header-left">
+                            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+                            <a href="index.html" class="logo">
+                                <span class="logo-icon">📺</span>
+                                <span class="logo-text">YouTube</span>
+                            </a>
+                        </div>
+
+                        <div class="header-center">
+                            <div class="search-container">
+                                <form class="search-form" id="search-form">
+                                    <input type="text" class="search-input" id="search-input" placeholder="Search"
+                                        autocomplete="off">
+                                    <button type="submit" class="search-button" aria-label="Search">🔍</button>
+                                </form>
+
+                                <!-- Search Suggestions -->
+                                <div class="search-suggestions" id="search-suggestions"></div>
+                            </div>
+
+                            <button class="voice-search" aria-label="Voice search">🎤</button>
+                        </div>
+
+                        <div class="header-right">
+                            <button class="header-icon" aria-label="Create">➕</button>
+                            <button class="header-icon" aria-label="Notifications">🔔</button>
+                            <button class="header-icon" id="theme-toggle" aria-label="Toggle theme">
+                                <span class="theme-toggle-icon">🌙</span>
+                            </button>
+                            <div class="user-avatar" aria-label="User menu">U</div>
+                        </div>
+                    </header>
+
+                    <!-- Sidebar -->
+                    <aside class="sidebar" id="sidebar">
+                        <div class="sidebar-section">
+                            <div class="sidebar-item active">
+                                <span class="sidebar-icon">🏠</span>
+                                <span class="sidebar-text">Home</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="sidebar-icon">🎬</span>
+                                <span class="sidebar-text">Shorts</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="sidebar-icon">📺</span>
+                                <span class="sidebar-text">Subscriptions</span>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <div class="sidebar-item">
+                                <span class="sidebar-icon">📚</span>
+                                <span class="sidebar-text">Library</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="sidebar-icon">⏰</span>
+                                <span class="sidebar-text">History</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="sidebar-icon">🎥</span>
+                                <span class="sidebar-text">Your videos</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="sidebar-icon">⏱️</span>
+                                <span class="sidebar-text">Watch Later</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="sidebar-icon">👍</span>
+                                <span class="sidebar-text">Liked videos</span>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <main class="main-content" id="main-content">
+                        <!-- Error Message Container -->
+                        <div id="error-message"></div>
+
+                        <!-- Loading State -->
+                        <div class="loading" id="loading">
+                            <div class="spinner"></div>
+                        </div>
+
+                        <!-- Watch Container -->
+                        <div class="watch-container" id="watch-container" style="display: none;">
+                            <!-- Primary Column -->
+                            <div class="video-player-section">
+                                <!-- Video Player -->
+                                <div class="video-player" id="video-player"></div>
+
+                                <!-- Video Info -->
+                                <div class="video-primary-info">
+                                    <h1 class="video-watch-title" id="video-title">Loading...</h1>
+
+                                    <div class="video-stats">
+                                        <div class="video-stats-left">
+                                            <span id="video-views">0 views</span>
+                                            <span>•</span>
+                                            <span id="video-date">Loading...</span>
+                                        </div>
+
+                                        <div class="video-stats-right">
+                                            <button class="action-button">
+                                                <span>👍</span>
+                                                <span id="video-likes">0</span>
+                                            </button>
+                                            <button class="action-button">
+                                                <span>👎</span>
+                                            </button>
+                                            <button class="action-button">
+                                                <span>↗️</span>
+                                                <span>Share</span>
+                                            </button>
+                                            <button class="action-button">
+                                                <span>💾</span>
+                                                <span>Save</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Channel Info -->
+                                <div class="channel-info">
+                                    <div class="channel-details">
+                                        <div class="channel-avatar" id="channel-avatar">C</div>
+                                        <div class="channel-text">
+                                            <div class="channel-name" id="channel-name">Channel Name</div>
+                                            <div class="channel-subscribers">1M subscribers</div>
+                                        </div>
+                                    </div>
+                                    <button class="subscribe-button">Subscribe</button>
+                                </div>
+
+                                <!-- Video Description -->
+                                <div class="video-description" id="video-description">
+                                    Loading video description...
+                                </div>
+                            </div>
+
+                            <!-- Related Videos Sidebar -->
+                            <div class="related-videos-section">
+                                <h2 class="related-videos-title">Related Videos</h2>
+                                <div id="related-videos"></div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <!-- Scripts -->
+                    <script src="demo-data.js"></script>
+                    <script src="config.js"></script>
+                    <script src="api.js"></script>
+                    <script src="theme.js"></script>
+                    <script src="watch.js"></script>
+                </body>
+
+                </html>

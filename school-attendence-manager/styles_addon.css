@@ -1,0 +1,32 @@
+.form-group input::placeholder {
+    color: var(--text-muted);
+}
+
+.form-toggle {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-toggle p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.form-toggle a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.form-toggle a:hover {
+    color: var(--accent-pink);
+    text-decoration: underline;
+}
+
+/* Dashboard Section */
+.dashboard-section {
+    animation: fadeIn 0.6s ease;
+}
